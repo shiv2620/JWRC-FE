@@ -8,6 +8,8 @@ import Achievements from "./pages/Achievements";
 import Events from "./pages/Events";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
+import Blog from "./pages/Blog";
+// import Blog from "./pages/Blog";
 
 export default function App() {
   return (
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<Blog />} />
+
       </Routes>
 
       <Footer />
