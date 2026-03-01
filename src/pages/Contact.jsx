@@ -13,8 +13,8 @@ const CONTACT_INFO = [
   {
     icon: "📞",
     label: "Phone",
-    value: "+91 98290 XXXXX",
-    href: "tel:+9198290XXXXX",
+    value: "+91 9145909026",
+    href: "tel:+91 9145909026",
   },
   {
     icon: "📍",
@@ -186,7 +186,7 @@ export default function Contact() {
           Contact
         </h1>
         <p style={{ color: "#6b7280", fontSize: 17, maxWidth: 520, margin: "0 auto" }}>
-          Have a question or want to participate in our events? We'd love to hear from you!
+          Contact Jaipur Record Carnival For Any Query...
         </p>
       </div>
 
@@ -205,8 +205,8 @@ export default function Contact() {
           onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(0,0,0,0.10)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
           onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.06)"; e.currentTarget.style.transform = "translateY(0)"; }}
         >
-          <h2 style={{ fontSize: 22, fontWeight: 800, margin: "0 0 28px", color: "#111827" }}>
-            Send us a Message
+          <h2 style={{ fontSize: 22, fontWeight: 800, margin: "0 0 28px", color: "#2563eb" }}>
+            बनायें विश्व कीर्तिमान मनमोहन अग्रवाल के साथ
           </h2>
 
           {submitted ? (
@@ -234,11 +234,11 @@ export default function Contact() {
             <>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 24px" }}>
                 <InputField label="Full Name" required placeholder="Enter your name" value={form.name} onChange={handleChange("name")} />
-                <InputField label="Email Address" required type="email" placeholder="your@email.com" value={form.email} onChange={handleChange("email")} />
+                <InputField label="Email Address" type="email" placeholder="your@email.com" value={form.email} onChange={handleChange("email")} />
               </div>
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0 24px" }}>
-                <InputField label="Phone Number" type="tel" placeholder="+91 XXXXX XXXXX" value={form.phone} onChange={handleChange("phone")} />
-                <InputField label="Subject" required placeholder="How can we help?" value={form.subject} onChange={handleChange("subject")} />
+                <InputField label="Phone Number" required type="tel" placeholder="+91 XXXXX XXXXX" value={form.phone} onChange={handleChange("phone")} />
+                <InputField label="Subject" placeholder="How can we help?" value={form.subject} onChange={handleChange("subject")} />
               </div>
               <InputField label="Message" required placeholder="Tell us about your inquiry or how you'd like to participate..." value={form.message} onChange={handleChange("message")} isTextarea />
 
