@@ -6,10 +6,9 @@ import Home from "./pages/Home";
 import WorldRecords from "./pages/WorldRecords";
 import Achievements from "./pages/Achievements";
 import Events from "./pages/Events";
+import Blog from "./pages/Blog";
 import News from "./pages/News";
 import Contact from "./pages/Contact";
-import Blog from "./pages/Blog";
-// import Blog from "./pages/Blog";
 
 export default function App() {
   return (
@@ -21,12 +20,11 @@ export default function App() {
         <Route path="/world-records" element={<WorldRecords />} />
         <Route path="/achievements" element={<Achievements />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/blog" element={<Blog />} />
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/blog" element={<Blog />} />
-
       </Routes>
-
+      
       <Footer />
     </>
   );
