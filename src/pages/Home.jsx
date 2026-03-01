@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import CertificateDownload from "../components/CertificateDownload";
 
 const TIMELINE = [
   { year: "2003", title: "The Beginning", desc: "Mr. Manmohan Agarwal's journey started with a vision to create a platform for celebrating human potential and achievements in India.", side: "left" },
@@ -24,8 +25,8 @@ const TEAM = [
 ];
 
 const IMPACT = [
-  { icon: "👥", num: "100,000+", label: "Lives Impacted", sub: "Participants whose lives have been transformed" },
-  { icon: "🏆", num: "15+", label: "World Records", sub: "Successfully organized and certified" },
+  { icon: "👥", num: "10M+", label: "Lives Impacted", sub: "Participants whose lives have been transformed" },
+  { icon: "🏆", num: "20+", label: "World Records", sub: "Successfully organized and certified" },
   { icon: "🌐", num: "25+", label: "Countries", sub: "International participants represented" },
   { icon: "📈", num: "100+", label: "Events", sub: "Record-breaking events conducted" },
 ];
@@ -101,6 +102,7 @@ export default function Home() {
               A visionary leader who has dedicated his life to celebrating human potential and achievements. Holder of multiple world records and organizer of India's most prestigious world record events.
             </p>
             <div style={{ display: "flex", gap: 12, marginBottom: 40 }}>
+              <a href="/world-records" style={{ textDecoration: "none" }}>
               <button style={{
                 background: "#2563eb", color: "#fff", border: "none", borderRadius: 8,
                 padding: "12px 24px", fontWeight: 600, fontSize: 15, cursor: "pointer",
@@ -109,20 +111,21 @@ export default function Home() {
               }}
                 onMouseEnter={e => { e.currentTarget.style.background = "#1d4ed8"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(37,99,235,0.4)"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "#2563eb"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(37,99,235,0.3)"; }}
-              >View World Records</button>
+              >View World Records</button></a>
+              <a href="/Events" style={{ textDecoration: "none" }}>
               <button style={{
                 background: "transparent", color: "#2563eb", border: "1.5px solid #2563eb",
                 borderRadius: 8, padding: "12px 24px", fontWeight: 600, fontSize: 15, cursor: "pointer",
                 transition: "background 0.2s, transform 0.2s",
               }}
-                onMouseEnter={e => { e.currentTarget.style.background = "#eff6ff"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.transform = "translateY(0)"; }}
-              >Upcoming Events</button>
+                onMouseEnter={e => { e.currentTarget.style.background = "#eff6ff"; e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 8px 20px rgba(37,99,235,0.4)";}}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(37,99,235,0.3)";}}
+              >Upcoming Events</button></a>
             </div>
             <div style={{ display: "flex", gap: 24 }}>
               {[
-                { icon: "🏆", num: "15+", label: "Multiple World Records" },
-                { icon: "🎖️", num: "20+", label: "Years of Excellence" },
+                { icon: "🏆", num: "20+", label: "Multiple World Records" },
+                { icon: "🎖️", num: "40+", label: "Years of Excellence" },
                 { icon: "📅", num: "100+", label: "Events Organized" },
               ].map(s => (
                 <div key={s.label} style={{
@@ -145,12 +148,28 @@ export default function Home() {
             <div style={{ position: "absolute", top: -10, right: -10, background: "#2563eb", color: "#fff", borderRadius: 10, padding: "10px 16px", zIndex: 2, textAlign: "center", fontSize: 12, fontWeight: 700, lineHeight: 1.3 }}>
               Multiple World<br />Record Holder
             </div>
-            <div style={{ width: 380, height: 420, borderRadius: 16, background: "linear-gradient(135deg,#bfdbfe,#93c5fd)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", boxShadow: "0 20px 60px rgba(37,99,235,0.2)" }}>
-              <div style={{ textAlign: "center", color: "#1d4ed8" }}>
-                <div style={{ fontSize: 80 }}>👤</div>
-                <p style={{ margin: 0, fontWeight: 600 }}>Mr. Manmohan Agarwal</p>
-                <p style={{ margin: 0, fontSize: 13 }}>Add photo here</p>
-              </div>
+            <div
+              style={{
+                width: 480,
+                height: 520,
+                borderRadius: 16,
+                background: "linear-gradient(135deg,#bfdbfe,#93c5fd)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 20px 60px rgba(157, 185, 247, 0.2)"
+              }}
+            >
+              <img
+                src="/images/manmohan-agarwal.jpg"
+                alt="Mr. Manmohan Agarwal"
+                style={{
+                  width: "90%",
+                  height: "90%",
+                  borderRadius: 12,
+                  objectFit: "cover"
+                }}
+              />
             </div>
           </div>
         </div>
@@ -322,28 +341,47 @@ export default function Home() {
             <p style={{ color: "#6b7280" }}>Capturing the spirit of achievement and celebration</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
-            {[
-              { emoji: "🧘", label: "Yoga World Record", color: "#e0f2fe" },
-              { emoji: "🎉", label: "Mass Events", color: "#dbeafe" },
-              { emoji: "🏰", label: "Cultural Heritage", color: "#ede9fe" },
-            ].map(img => (
-              <div key={img.label} style={{
-                borderRadius: 16, overflow: "hidden", height: 220,
-                background: img.color, display: "flex", flexDirection: "column",
-                alignItems: "center", justifyContent: "center", gap: 12,
-                border: "1px solid #e5e7eb",
-                transition: "box-shadow 0.2s, transform 0.2s",
-                cursor: "pointer",
-              }}
-                onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 8px 28px rgba(37,99,235,0.14)"; e.currentTarget.style.transform = "translateY(-3px)"; }}
-                onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "translateY(0)"; }}
-              >
-                <div style={{ fontSize: 60 }}>{img.emoji}</div>
-                <p style={{ margin: 0, fontWeight: 600, color: "#374151" }}>{img.label}</p>
-                <p style={{ margin: 0, fontSize: 12, color: "#6b7280" }}>Add image here</p>
-              </div>
-            ))}
-          </div>
+  {[
+    { img: "images/yoga.png", label: "Yoga World Record" },
+    { img: "images/mass.png", label: "Mass Events" },
+    { img: "images/cultural.png", label: "Cultural Heritage" },
+  ].map(item => (
+    <div key={item.label} style={{
+      borderRadius: 16, overflow: "hidden", height: 220,
+      border: "1px solid #e5e7eb",
+      transition: "box-shadow 0.2s, transform 0.2s",
+      cursor: "pointer",
+      position: "relative",
+    }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 8px 28px rgba(37,99,235,0.14)"; e.currentTarget.style.transform = "translateY(-3px)"; }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = "none"; e.currentTarget.style.transform = "translateY(0)"; }}
+    >
+      {/* IMAGE */}
+      <img
+        src={item.img}
+        alt={item.label}
+        style={{
+          width: "100%", height: "100%",
+          objectFit: "cover", display: "block",
+          transition: "transform 0.4s",
+        }}
+        onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"}
+        onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+      />
+
+      {/* LABEL OVERLAY */}
+      <div style={{
+        position: "absolute", bottom: 0, left: 0, right: 0,
+        background: "linear-gradient(to top, rgba(0,0,0,0.65), transparent)",
+        padding: "28px 16px 14px",
+      }}>
+        <p style={{ margin: 0, fontWeight: 700, color: "#fff", fontSize: 15 }}>
+          {item.label}
+        </p>
+      </div>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 
@@ -362,6 +400,9 @@ export default function Home() {
           >Partner With Us</button>
         </div>
       </section>
+      <section style={{ padding: "60px 40px", background: "#0f172a" }}>
+  <CertificateDownload />
+</section>
     </div>
   );
 }
