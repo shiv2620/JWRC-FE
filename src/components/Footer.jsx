@@ -1,9 +1,21 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   const SOCIAL = [
     { icon: "f", label: "Facebook", color: "#1877f2" },
     { icon: "◎", label: "Instagram", color: "#e1306c" },
     { icon: "𝕏", label: "Twitter", color: "#fff" },
     { icon: "▶", label: "YouTube", color: "#ff0000" },
+  ];
+
+  const QUICK_LINKS = [
+    { name: "Home", path: "/" },
+    { name: "World Records", path: "/world-records" },
+    { name: "Achievements", path: "/achievements"},
+    { name: "Events", path: "/events" },
+    { name: "News", path: "/news" },
+    { name: "Contact", path: "/contact"},
+    { name: "Blog", path: "/blog"}
   ];
 
   const hoverLink = (e) => { e.target.style.color = "#ff6b35"; e.target.style.paddingLeft = "4px"; };
@@ -39,23 +51,28 @@ export default function Footer() {
 
           {/* BRAND COLUMN */}
           <div>
-            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
-              <div style={{
-                width: 46, height: 46,
-                background: "linear-gradient(135deg,#ff6b35,#f7c59f)",
-                borderRadius: 10,
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 15, fontWeight: 800, color: "#fff",
-                boxShadow: "0 4px 14px rgba(255,107,53,0.35)",
-              }}>JW</div>
-              <div>
-                <p style={{ margin: 0, fontSize: 14, fontWeight: 700, color: "#f9fafb" }}>Jaipur World Record</p>
-                <p style={{ margin: 0, fontSize: 11, color: "#6b7280", letterSpacing: 0.5 }}>CARNIVAL</p>
-              </div>
-            </div>
+            {/* LOGO IMAGE */}
+            <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", marginBottom: 20 }}>
+              <img
+                src="/images/logo.jpeg"
+                alt="Jaipur World Record Carnival"
+                style={{
+                  height: 60,
+                  width: "auto",
+                  objectFit: "contain"
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.opacity = "0.85"; e.currentTarget.style.transform = "scale(1.03)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.opacity = "1"; e.currentTarget.style.transform = "scale(1)"; }}
+              />
+              <span style={{ color: "#2563eb", fontSize: 13, fontWeight: 600 }}>
+            Jaipur World Record Carnival
+          </span>
+            </Link>
+
             <p style={{ fontSize: 13, lineHeight: 1.8, color: "#9ca3af", marginBottom: 20, maxWidth: 280 }}>
-              India's premier platform for celebrating extraordinary human achievements and breaking world records.
+              Jaipur World Record Carnival (JWRC) is a platform dedicated to recognizing extraordinary achievements and inspiring individuals, institutions, and communities to attempt remarkable world records that create impact and celebrate human potential.
             </p>
+
             {/* Contact pills */}
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
               <a href="mailto:info@jaipurworldrecordcarnival.in" style={{
@@ -69,7 +86,7 @@ export default function Footer() {
               >
                 ✉️ <span>info@jaipurworldrecordcarnival.in</span>
               </a>
-              <a href="tel:+9198290XXXXX" style={{
+              <a href="tel:+919145909026" style={{
                 display: "inline-flex", alignItems: "center", gap: 8,
                 background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)",
                 borderRadius: 8, padding: "7px 12px", textDecoration: "none",
@@ -78,7 +95,7 @@ export default function Footer() {
                 onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,107,53,0.1)"; e.currentTarget.style.borderColor = "rgba(255,107,53,0.3)"; e.currentTarget.style.color = "#ff6b35"; }}
                 onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.color = "#9ca3af"; }}
               >
-                📞 <span>+91 98290 XXXXX</span>
+                📞 <span>+91 9145909026</span>
               </a>
             </div>
           </div>
@@ -86,11 +103,14 @@ export default function Footer() {
           {/* QUICK LINKS */}
           <div>
             <h5 style={{ color: "#f9fafb", fontWeight: 700, marginBottom: 20, fontSize: 13, letterSpacing: 1, textTransform: "uppercase" }}>Quick Links</h5>
-            {["Home", "World Records", "Events", "News"].map(l => (
-              <p key={l} style={{ margin: "0 0 12px" }}>
-                <a href="#" style={{ color: "#9ca3af", textDecoration: "none", fontSize: 13, transition: "color 0.2s, padding-left 0.2s" }}
-                  onMouseEnter={hoverLink} onMouseLeave={unhoverLink}
-                >{l}</a>
+            {QUICK_LINKS.map(l => (
+              <p key={l.name} style={{ margin: "0 0 12px" }}>
+                <Link
+                  to={l.path}
+                  style={{ color: "#9ca3af", textDecoration: "none", fontSize: 13, transition: "color 0.2s, padding-left 0.2s" }}
+                  onMouseEnter={hoverLink}
+                  onMouseLeave={unhoverLink}
+                >{l.name}</Link>
               </p>
             ))}
           </div>
