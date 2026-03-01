@@ -4,10 +4,10 @@ import { useState } from "react";
 // DATA
 // ============================================================
 const STATS = [
-  { icon: "🏆", label: "Total Records Set", value: "15+" },
-  { icon: "👥", label: "Total Participants", value: "1,00,000+" },
+  { icon: "🏆", label: "Total World Records Set", value: "20+" },
+  { icon: "👥", label: "Total Participants", value: "10M +" },
   { icon: "🌍", label: "Countries Represented", value: "25+" },
-  { icon: "⭐", label: "Years of Excellence", value: "20+" },
+  { icon: "⭐", label: "Years of Excellence", value: "40+" },
 ];
 
 const CATEGORIES = ["All", "Mass Participation", "Art & Culture", "Sports", "Heritage", "Innovation"];
