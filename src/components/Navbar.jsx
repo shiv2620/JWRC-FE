@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { name: "Events", path: "/events" },
   { name: "News", path: "/news" },
   { name: "Contact", path: "/contact" },
+  {name: "Blog", path: "/Blog" },
 ];
 
 export default function Navbar() {
@@ -80,21 +81,20 @@ export default function Navbar() {
           to="/"
           style={{ display: "flex", alignItems: "center", gap: 12, textDecoration: "none" }}
         >
-          <div
-            className="logo-box"
+          
+            <img
+            src="/images/logo.jpeg"
+            alt="Jaipur World Record Carnival"
+            className="nav-logo-img"
             style={{
-              width: 38, height: 38,
-              background: "linear-gradient(135deg,#ff6b35,#f7c59f)",
-              borderRadius: 8,
-              display: "flex", alignItems: "center", justifyContent: "center",
-              fontSize: 14, fontWeight: 800, color: "#fff",
-              boxShadow: "0 2px 8px rgba(255,107,53,0.35)",
+              height: 52,
+              width: "auto",
+              objectFit: "contain",
             }}
-          >
-            JW
-          </div>
+          />
+          
           <span style={{ color: "#2563eb", fontSize: 13, fontWeight: 600 }}>
-            बनायें विश्व कीर्तिमान मनमोहन अग्रवाल के साथ
+            Create a world record with Manmohan Agarwal
           </span>
         </Link>
 
